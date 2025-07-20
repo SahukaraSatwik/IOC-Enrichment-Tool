@@ -214,7 +214,7 @@ async def get_current_user(
     db: AsyncIOMotorDatabase = None
 ) -> User:
     """Get current authenticated user"""
-    if not db:
+    if db is None:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Database not available"
